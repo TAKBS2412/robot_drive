@@ -14,13 +14,19 @@
 	<p id="x">Goodbye</p>
 	<p id="y">Goodbye</p>
 	<script>
-		var stick = new Joystick(navigator.getGamepads()[0]);
 		var bp = document.getElementById("buttonPressed");
 		var x = document.getElementById("x");
 		var y = document.getElementById("y");
-		bp.textContent = stick.getRawButton(0).pressed;
-		x.textContent = stick.getX();
-		y.textContent = stick.getY();
+		function update(timestamp) {
+			var stick = new Joystick(navigator.getGamepads()[0]);
+			if(stick !== null) {
+				bp.textContent = stick.getRawButton(0).pressed;
+				x.textContent = stick.getX();
+				y.textContent = stick.getY();
+			}
+			window.requestAnimationFrame(update);
+		}
+		window.requestAnimationFrame(update);
 	</script>
 </body>
 </html>
