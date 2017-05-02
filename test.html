@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="utf-8">
+	<title>Test page</title>
+	<script src="Joystick.js"></script>
+	<style type="text/css">
+	</style>
+</head>
+
+<body>
+	<p id="buttonPressed">Hello</p>
+	<p id="axes">Goodbye</p>
+	<script>
+		var stick = new Joystick(navigator.getGamepads()[0]);
+		var bp = document.getElementById("buttonPressed");
+		var axes = document.getElementById("axes");
+		bp.textContent = stick.getRawButton(0).pressed;
+		axes.textContent = stick.getRawAxis(0);
+	</script>
+</body>
+</html>
