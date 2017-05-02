@@ -7,8 +7,22 @@ function Joystick(_stick) {
     this.stick = _stick;
 };
 
-// Gets a GamepadButton instance that represents the Joystick's button at the specified instance.
+// Gets a GamepadButton instance that represents the Joystick's button at the specified index.
 Joystick.prototype.getRawButton = function(index) {
     return this.stick.buttons[index];
 };
 
+// Gets the value of the axes at the specified index.
+Joystick.prototype.getRawAxis = function(index) {
+    return this.stick.axes[index];
+}
+
+// Gets the value of the Joystick's x axis.
+Joystick.prototype.getX = function() {
+    return this.stick.axes[0];
+}
+
+// Gets the value of the Joystick's y axis.
+Joystick.prototype.getY = function() {
+    return this.stick.axes[1];
+}
