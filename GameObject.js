@@ -7,9 +7,17 @@
 */
 
 // Creates a GameObject instance.
-function GamepadObject(_model, _view, _controller) {
+function GameObject(_model, _view, _controller) {
     this.model = _model;
     this.view = _view;
     this.controller = _controller;
-};
+}
 
+// Updates GameModel and GameView when appropriate.
+// This function is (indirectly) called periodically by requestAnimationFrame().
+GameObject.prototype.update = function() {
+    // Update GameModel based on GameController.
+    this.model.update(this.controller);
+    // Update GameView based on GameModel.
+    this.view.update(this.model);
+};
