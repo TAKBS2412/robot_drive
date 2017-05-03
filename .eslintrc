@@ -1,0 +1,12 @@
+{
+    "env": {
+      "browser": true  
+    },
+    "globals": {
+        "Joystick", true,
+        "GameModel", true,
+        "GameObject", true,
+        "GameView", true,
+        "GameController", true
+    }
+}
