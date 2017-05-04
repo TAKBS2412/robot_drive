@@ -5,6 +5,10 @@
 	<meta charset="utf-8">
 	<title>Test page</title>
 	<script src="Joystick.js"></script>
+	<script src="GameObjects/GameObject.js"></script>
+	<script src="GameObjects/GameModel.js"></script>
+	<script src="GameObjects/GameController.js"></script>
+	<script src="Main.js"></script>
 	<style type="text/css">
 	</style>
 </head>
@@ -24,6 +28,11 @@
 				x.textContent = stick.getX();
 				y.textContent = stick.getY();
 			}
+			robotModel.update(stick);
+			console.log("X: " + robotModel.x);
+			console.log("Y: " + robotModel.y);
+			console.log("Speed: " + robotModel.speed);
+			console.log("Angle: " + robotModel.angle);
 			window.requestAnimationFrame(update);
 		}
 		window.requestAnimationFrame(update);
