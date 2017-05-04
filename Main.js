@@ -61,8 +61,8 @@ window.onload = function() {
         var origPoints = [
             [0, 0],
             [50, 0],
-            [50, 50],
-            [0, 50]
+            [50, 40],
+            [0, 40]
         ];
         
         // Find new model location.
