@@ -65,6 +65,10 @@ window.onload = function() {
             [0, 50]
         ];
         
+        // Find new model location.
+        model.x = model.x + Math.cos(model.angle) * model.speed;
+        model.y = model.y + Math.sin(model.angle) * model.speed;
+        
         // Translate and rotate points.
         for(var i = 0; i < origPoints.length; i++) {
             origPoints[i] = [origPoints[i][0] + model.x, origPoints[i][1] + model.y];
