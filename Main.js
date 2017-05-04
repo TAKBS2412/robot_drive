@@ -104,4 +104,7 @@ window.onload = function() {
         
         return [newx, newy];
     };
+    
+    var robotObject = new GameObject(robotModel, robotView, robotController); // Create robot.
+    
 };
