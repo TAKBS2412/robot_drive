@@ -67,21 +67,18 @@ window.onload = function() {
         
         // Translate and rotate points.
         for(var i = 0; i < origPoints.length; i++) {
-            var curPoint = origPoints[i];
-            curPoint = [curPoint[0] + model.x, curPoint[1] + model.y];
-            curPoint = this.rotatePoint(curPoint, this.angle, [model.x, model.y]);
+            origPoints[i] = [origPoints[i][0] + model.x, origPoints[i][1] + model.y];
+            origPoints[i] = this.rotatePoint(origPoints[i], this.angle, [model.x, model.y]);
         }
-        
         this.ctx.beginPath();
         this.ctx.moveTo(origPoints[0], origPoints[1]);
         for(var i = 1; i < origPoints.length; i++) {
             var curPoint = origPoints[i];
             this.ctx.lineTo(curPoint[0], curPoint[1]);
         }
-        
         this.ctx.lineWidth = 5;
-        this.strokeStyle = "black";
-        this.stroke();
+        this.ctx.strokeStyle = "black";
+        this.ctx.stroke();
     };
     
     // Rotates the point point by the angle angle around the center center.
