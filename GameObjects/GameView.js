@@ -5,7 +5,11 @@
 // Creates a GameView instance from a canvas.
 function GameView(_canvas) {
     this.canvas = _canvas;
-    this.ctx = _canvas.getContex("2d");
+    if(_canvas === null) {
+        this.ctx = null;
+    } else {
+        this.ctx = _canvas.getContext("2d");
+    }
 }
 
 // This function updates the current GameView instance using GameModel.
