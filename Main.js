@@ -110,6 +110,9 @@ window.onload = function() {
     
     // This function is called periodically by window.requestAnimationFrame().
     function update(timestamp) {
+        // Clear the canvas for redrawing.
+        robotView.ctx.clearRect(0, 0, robotView.canvas.width, robotView.canvas.height);
+        
         // Retrieve updated joystick instance and set it.
         var stick = new Joystick(navigator.getGamepads()[0]);
         robotController.input = stick;
