@@ -41,3 +41,59 @@ robotModel.update = function(controller) {
     this.x += controller.getDeltaX();
     this.y += controller.getDeltaY();
 };
+
+
+/* A GameView implementation. */
+var canvas = document.getElementById("field");
+var robotView = new GameView(canvas);
+
+// An implementation of GameView's update() function.
+// Assumes that model is a GameModel object (see GameModel.js) with the methods shown above implemented.
+robotView.update = function(model) {
+    // Original rectangle points.
+    var origPoints = [
+        [0, 0],
+        [50, 0],
+        [50, 50],
+        [0, 50]
+    ];
+    
+    // Translate and rotate points.
+    for(var i = 0; i < origPoints.length; i++) {
+        var curPoint = origPoints[i];
+        curPoint = [curPoint[0] + model.x, curPoint[1] + model.y];
+        curPoint = this.rotatePoint(curPoint, this.angle, [model.x, model.y]);
+    }
+    
+    this.ctx.beginPath();
+    this.ctx.moveTo(origPoints[0], origPoints[1]);
+    for(var i = 1; i < origPoints.length; i++) {
+        var curPoint = origPoints[i];
+        this.ctx.lineTo(curPoint[0], curPoint[1]);
+    }
+    
+    this.ctx.lineWidth = 5;
+    this.strokeStyle = "black";
+    this.stroke();
+};
+
+// Rotates the point point by the angle angle around the center center.
+// Returns the rotated point.
+robotView.rotatePoint = function(point, angle, center) {
+    var deltaX = point[0] - center[0];
+    var deltaY = point[1] - center[1];
+    
+    // Find angle between point and center.
+    var theta = Math.atan2(deltaY, deltaX);
+    
+    // Find distance between point and center.
+    var distance = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
+    
+    var newtheta = theta + angle;
+    
+    // Find the new x and y coordinates of the rotated rectangle.
+    var newx = center[0] + Math.cos(newtheta) * distance;
+    var newy = center[1] + Math.sin(newtheta) * distance;
+    
+    return [newx, newy];
+};
