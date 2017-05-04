@@ -41,7 +41,7 @@ window.onload = function() {
     // Assumes that controller is a GameController object (see GameController.js) with the methods shown above implemented.
     robotModel.update = function(controller) {
         // Find angle and speed from controller
-        this.angle = controller.getAngle();
+        this.angle = controller.getAngle() * Math.PI;
         this.speed = controller.getSpeed();
         
         // Recalculate x and y coordinates
