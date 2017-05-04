@@ -2,11 +2,16 @@
 * This file contains implementations of GameView, GameModel, and GameController, as well as instances of other classes.
 */
 
+// Variable declarations.
+var robotController;
+var robotModel;
+var robotView;
+
 // To be called when the page is loaded.
 window.onload = function() {
     /* A GameController implementation. */
     var stick = new Joystick(navigator.getGamepads()[0]);
-    var robotController = new GameController(stick);
+    robotController = new GameController(stick);
     
     // Gets the angle from the joystick.
     robotController.getAngle = function() {
@@ -30,7 +35,7 @@ window.onload = function() {
     
     /* A GameModel implementation. */
     
-    var robotModel = new GameModel(0, 0); //Create new GameModel instance.
+    robotModel = new GameModel(0, 0); //Create new GameModel instance.
     
     // An implementation of GameModel's update() function.
     // Assumes that controller is a GameController object (see GameController.js) with the methods shown above implemented.
@@ -47,7 +52,7 @@ window.onload = function() {
     
     /* A GameView implementation. */
     var canvas = document.getElementById("field");
-    var robotView = new GameView(canvas);
+    robotView = new GameView(canvas);
     
     // An implementation of GameView's update() function.
     // Assumes that model is a GameModel object (see GameModel.js) with the methods shown above implemented.
