@@ -107,4 +107,17 @@ window.onload = function() {
     
     var robotObject = new GameObject(robotModel, robotView, robotController); // Create robot.
     
+    // This function is called periodically by window.requestAnimationFrame().
+    function update(timestamp) {
+        // Retrieve updated joystick instance and set it.
+        var stick = new Joystick(navigator.getGamepads()[0]);
+        robotController.input = stick;
+        
+        // Update robotObject.
+        robotObject.update();
+        
+        // Recursively call update().
+        window.requestAnimationFrame(update);
+    }
+    window.requestAnimationFrame(update);
 };
