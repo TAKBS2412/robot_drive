@@ -45,8 +45,8 @@ window.onload = function() {
         this.speed = controller.getSpeed();
         
         // Recalculate x and y coordinates
-        this.x += controller.getDeltaX();
-        this.y += controller.getDeltaY();
+        this.x += (controller.getDeltaX() | 0);
+        this.y += (controller.getDeltaY() | 0);
     };
     
     
@@ -68,7 +68,7 @@ window.onload = function() {
         // Translate and rotate points.
         for(var i = 0; i < origPoints.length; i++) {
             origPoints[i] = [origPoints[i][0] + model.x, origPoints[i][1] + model.y];
-            origPoints[i] = this.rotatePoint(origPoints[i], this.angle, [model.x, model.y]);
+            origPoints[i] = this.rotatePoint(origPoints[i], model.angle, [model.x, model.y]);
         }
         this.ctx.beginPath();
         this.ctx.moveTo(origPoints[0], origPoints[1]);
