@@ -75,11 +75,12 @@ window.onload = function() {
             origPoints[i] = this.rotatePoint(origPoints[i], model.angle, [model.x, model.y]);
         }
         this.ctx.beginPath();
-        this.ctx.moveTo(origPoints[0], origPoints[1]);
+        this.ctx.moveTo(origPoints[0][0], origPoints[0][1]);
         for(var i = 1; i < origPoints.length; i++) {
             var curPoint = origPoints[i];
             this.ctx.lineTo(curPoint[0], curPoint[1]);
         }
+        this.ctx.lineTo(origPoints[0][0], origPoints[0][1]); // Move back to the original point.
         this.ctx.lineWidth = 5;
         this.ctx.strokeStyle = "black";
         this.ctx.stroke();
