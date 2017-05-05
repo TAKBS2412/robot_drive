@@ -15,7 +15,7 @@ window.onload = function() {
     
     // Gets the angle from the joystick.
     robotController.getAngle = function() {
-        return this.input.getX() * Math.PI;;
+        return this.input.getX() - 0.5 * Math.PI;
     };
     
     // Gets the speed from the joystick.
@@ -42,7 +42,7 @@ window.onload = function() {
     robotModel.update = function(controller) {
         // Find angle and speed from controller
         this.angle = controller.getAngle()
-        this.speed = controller.getSpeed();
+        this.speed = -controller.getSpeed();
         
         // Recalculate x and y coordinates
         this.x += (controller.getDeltaX() | 0);
