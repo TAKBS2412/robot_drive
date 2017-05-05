@@ -15,7 +15,7 @@ window.onload = function() {
     
     // Gets the angle from the joystick.
     robotController.getAngle = function() {
-        return this.input.getX();
+        return this.input.getX() * Math.PI;;
     };
     
     // Gets the speed from the joystick.
@@ -41,7 +41,7 @@ window.onload = function() {
     // Assumes that controller is a GameController object (see GameController.js) with the methods shown above implemented.
     robotModel.update = function(controller) {
         // Find angle and speed from controller
-        this.angle = controller.getAngle() * Math.PI;
+        this.angle = controller.getAngle()
         this.speed = controller.getSpeed();
         
         // Recalculate x and y coordinates
