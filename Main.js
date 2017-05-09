@@ -17,13 +17,13 @@ window.onload = function() {
     robotController.getAngle = function() {
         var angle = stick.getX();
         if(Math.abs(angle) < 0.01) angle = 0;
-        angle *= 0.05;
+        angle *= 0.07;
         return angle;
     };
     
     // Gets the speed from the joystick.
     robotController.getSpeed = function() {
-        return this.input.getY();
+        return 1.5 * this.input.getY();
     };
     
     // Gets the change in x based off of angle and speed.
