@@ -7,7 +7,7 @@ function GameModel(_x, _y) {
     this.x = _x;
     this.y = _y;
     this.speed = 0;
-    this.angle = 0;
+    this.angle = -Math.PI/2;
 }
 
 // This function updates the current GameModel instance using GameController.

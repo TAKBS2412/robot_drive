@@ -18,7 +18,6 @@ window.onload = function() {
         var angle = stick.getX();
         if(Math.abs(angle) < 0.01) angle = 0;
         angle *= 0.05;
-        console.log(angle);
         return angle;
     };
     
