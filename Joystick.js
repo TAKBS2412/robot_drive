@@ -26,3 +26,11 @@ Joystick.prototype.getX = function() {
 Joystick.prototype.getY = function() {
     return this.stick.axes[1];
 };
+
+// Returns whether at least one button on this joysstick is pressed.
+Joystick.prototype.buttonPressed = function() {
+    for(var i = 0; i < this.stick.buttons.length; i++) {
+        if(this.getRawButton(i).pressed) return true;
+    }
+    return false;
+};
