@@ -37,8 +37,12 @@ window.onload = function() {
     };
     
     /* A GameModel implementation. */
-    
-    robotModel = new GameModel(0, 0); //Create new GameModel instance.
+    var canvas = document.getElementById("field");
+    // Get half the width and half the height of the canvas.
+    var widthhalf = canvas.width / 2;
+    var heighthalf = canvas.height / 2;
+
+    robotModel = new GameModel(widthhalf, heighthalf); //Create new GameModel instance.
     
     // An implementation of GameModel's update() function.
     // Assumes that controller is a GameController object (see GameController.js) with the methods shown above implemented.
@@ -54,7 +58,6 @@ window.onload = function() {
     
     
     /* A GameView implementation. */
-    var canvas = document.getElementById("field");
     robotView = new GameView(canvas);
     
     // An implementation of GameView's update() function.
