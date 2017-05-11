@@ -3,6 +3,6 @@ canvas {
     margin-right: 20px;
 }
 
-#controllers {
-    
+td {
+    cursor: pointer;
 }
