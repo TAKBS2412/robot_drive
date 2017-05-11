@@ -14,8 +14,10 @@ function Settings(_div) {
 // Updates the settings div based on the gamepads from navigator.getGamepads().
 Settings.prototype.update = function(gamepads) {
     var controllers = document.getElementById("controllers");
+    var gamepadcount = 0;
     for(var i = 0; i < gamepads.length; i++) {
         if(!gamepads[i]) continue; // Skip any null gamepads
+        gamepadcount++;
         var cell;
         if(!document.getElementById(i.toString(10))) { // Row not found, create a new one.
             var row = controllers.insertRow(i);
@@ -31,5 +33,11 @@ Settings.prototype.update = function(gamepads) {
         var stick = new Joystick(gamepads[i]);
         cell.style.backgroundColor = stick.buttonPressed() ? "red" : "white";
     }
-    console.log(this.gamepad_index);
+    // Remove any rows representing gamepads that have been deleted.
+    var row = document.getElementById(gamepadcount.toString(10));
+    while(row) {
+        controllers.deleteRow(gamepadcount);
+        gamepadcount++;
+        row = document.getElementById(gamepadcount.toString(10));
+    }
 };
