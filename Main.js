@@ -18,8 +18,9 @@ window.onload = function() {
     // Gets the angle from the joystick.
     robotController.getAngle = function() {
         var angle = this.input.getX();
-        if(Math.abs(angle) < 0.01) angle = 0;
+        if(Math.abs(angle) < 0.1) angle = 0;
         angle *= 0.07;
+        console.log(angle);
         return angle;
     };
     
