@@ -1,3 +1,12 @@
+@font-face {
+    font-family: BankGothic;
+    src: url(BankGothicBold.ttf);
+}
+
+body {
+    font-family: "BankGothic", "Lucida Console", sans-serif;
+}
+
 canvas {
     float: left;
     margin-right: 20px;
