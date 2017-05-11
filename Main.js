@@ -13,12 +13,11 @@ window.onload = function() {
     settings = new Settings(document.getElementById("settings"));
     
     /* A GameController implementation. */
-    var stick = new Joystick(navigator.getGamepads()[0]);
-    robotController = new GameController(stick);
+    robotController = new GameController();
     
     // Gets the angle from the joystick.
     robotController.getAngle = function() {
-        var angle = stick.getX();
+        var angle = this.input.getX();
         if(Math.abs(angle) < 0.01) angle = 0;
         angle *= 0.07;
         return angle;
@@ -129,7 +128,7 @@ window.onload = function() {
             // Retrieve updated joystick instance and set it.
             var stick = new Joystick(gamepads[settings.gamepad_index]);
             robotController.input = stick;
-        
+
             // Update robotObject.
             robotObject.update();
         }
