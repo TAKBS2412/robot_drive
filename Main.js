@@ -55,8 +55,8 @@ window.onload = function() {
         this.speed = -controller.getSpeed();
         
         // Recalculate x and y coordinates
-        this.x += (controller.getDeltaX() | 0);
-        this.y += (controller.getDeltaY() | 0);
+        this.x += (controller.getDeltaX(this.angle, this.speed) | 0);
+        this.y += (controller.getDeltaY(this.angle, this.speed) | 0);
     };
     
     
@@ -123,13 +123,16 @@ window.onload = function() {
         // Clear the canvas for redrawing.
         robotView.ctx.clearRect(0, 0, robotView.canvas.width, robotView.canvas.height);
         
-        // Retrieve updated joystick instance and set it.
         var gamepads = navigator.getGamepads();
-        var stick = new Joystick(gamepads[0]);
-        robotController.input = stick;
         
-        // Update robotObject.
-        robotObject.update();
+        if(settings.gamepad_index > 0) {
+            // Retrieve updated joystick instance and set it.
+            var stick = new Joystick(gamepads[settings.gamepad_index]);
+            robotController.input = stick;
+        
+            // Update robotObject.
+            robotObject.update();
+        }
         
         // Update settings.
         settings.update(gamepads);
