@@ -6,9 +6,12 @@
 var robotController;
 var robotModel;
 var robotView;
+var settings;
 
 // To be called when the page is loaded.
 window.onload = function() {
+    settings = new Settings(document.getElementById("settings"));
+    
     /* A GameController implementation. */
     var stick = new Joystick(navigator.getGamepads()[0]);
     robotController = new GameController(stick);
@@ -121,11 +124,15 @@ window.onload = function() {
         robotView.ctx.clearRect(0, 0, robotView.canvas.width, robotView.canvas.height);
         
         // Retrieve updated joystick instance and set it.
-        var stick = new Joystick(navigator.getGamepads()[0]);
+        var gamepads = navigator.getGamepads();
+        var stick = new Joystick(gamepads[0]);
         robotController.input = stick;
         
         // Update robotObject.
         robotObject.update();
+        
+        // Update settings.
+        settings.update(gamepads);
         
         // Recursively call update().
         window.requestAnimationFrame(update);
