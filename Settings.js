@@ -24,7 +24,7 @@ Settings.prototype.update = function(gamepads) {
             cell = row.insertCell(0);
             cell.id = i.toString(10);
             cell.addEventListener("click", function(e) {
-                settings.gamepad_index = this.id;
+                settings.gamepad_index = +this.id;
             });
         } else {
             cell = document.getElementById(i.toString());
