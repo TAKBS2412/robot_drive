@@ -124,7 +124,7 @@ window.onload = function() {
         
         var gamepads = navigator.getGamepads();
         
-        if(settings.gamepad_index > 0) {
+        if(settings.gamepad_index >= 0) {
             // Retrieve updated joystick instance and set it.
             var stick = new Joystick(gamepads[settings.gamepad_index]);
             robotController.input = stick;
