@@ -14,12 +14,16 @@ function Settings(_div) {
 // Updates the settings div based on the gamepads from navigator.getGamepads().
 Settings.prototype.update = function(gamepads) {
     var controllers = document.getElementById("controllers");
-    var gamepadcount = 0;
     for(var i = 0; i < gamepads.length; i++) {
-        if(!gamepads[i]) continue; // Skip any null gamepads
-        gamepadcount++;
+        var row = document.getElementById(i.toString(10));
+        if(!gamepads[i]) { // This gamepad is null, delete its row.
+            if(row) { // If a row exists, delete it.
+                controllers.deleteRow(i);
+            }
+            continue;
+        }
         var cell;
-        if(!document.getElementById(i.toString(10))) { // Row not found, create a new one.
+        if(!row) { // Row not found, create a new one.
             var row = controllers.insertRow(i);
             cell = row.insertCell(0);
             cell.id = i.toString(10);
@@ -38,12 +42,5 @@ Settings.prototype.update = function(gamepads) {
            cell.style.background = "black";
            cell.style.color = "red";
        }
-    }
-    // Remove any rows representing gamepads that have been deleted.
-    var row = document.getElementById(gamepadcount.toString(10));
-    while(row) {
-        controllers.deleteRow(gamepadcount);
-        gamepadcount++;
-        row = document.getElementById(gamepadcount.toString(10));
     }
 };
