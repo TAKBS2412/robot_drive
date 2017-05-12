@@ -24,8 +24,16 @@
             <h2>Choose a controller: </h2>
             <h4>Click on a controller's name to drive the robot with it.</h4>
             <h4>If you don't see any controllers, make sure one is connected and press any button.</h4>
+            <h4 id="iesucks"></h4>
             <table id="controllers" border="1">
             </table>
         </div>
     </div>
 </body>
+<script>
+    /* Check if the user's browser supports the HTML5 Gamepad API. */
+    if(!("getGamepads" in navigator)) {
+        // Gamepad API not supported.
+        document.getElementById("iesucks").innerHTML = "The browser you're using doesn't support using gamepads (or joysticks). Try using a supported browser such as Google Chrome or Firefox instead.";
+    }
+</script>
