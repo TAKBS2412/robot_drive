@@ -5,6 +5,8 @@
 
 body {
     font-family: "BankGothic", "Lucida Console", sans-serif;
+    background: black;
+    color: red;
 }
 
 canvas {
@@ -14,4 +16,5 @@ canvas {
 
 td {
     cursor: pointer;
+    background: black;
 }

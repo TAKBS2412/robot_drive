@@ -91,7 +91,7 @@ window.onload = function() {
         }
         this.ctx.lineTo(origPoints[0][0], origPoints[0][1]); // Move back to the original point.
         this.ctx.lineWidth = 5;
-        this.ctx.strokeStyle = "black";
+        this.ctx.strokeStyle = "red";
         this.ctx.stroke();
     };
     
