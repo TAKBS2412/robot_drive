@@ -31,7 +31,13 @@ Settings.prototype.update = function(gamepads) {
         }
         cell.innerHTML = gamepads[i].id;
         var stick = new Joystick(gamepads[i]);
-        cell.style.backgroundColor = stick.buttonPressed() ? "red" : "black";
+       if(stick.buttonPressed()) {
+           cell.style.background = "red";
+           cell.style.color = "black";
+       } else {
+           cell.style.background = "black";
+           cell.style.color = "red";
+       }
     }
     // Remove any rows representing gamepads that have been deleted.
     var row = document.getElementById(gamepadcount.toString(10));
