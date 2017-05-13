@@ -68,10 +68,20 @@ window.onload = function() {
     robotView.update = function(model) {
         // Original rectangle points.
         var origPoints = [
+            // Beginning of robot.
             [-25, -20],
-            [25, -20],
+            [25, -20], 
+            // First arm.
+            [25, -15],
+            [35, -15],
+            [25, -15],
+            // Second arm.
+            [25, 15],
+            [35, 15],
+            [25, 15],
+            // Rest of robot.
             [25, 20],
-            [-25, 20]
+            [-25, 20],
         ];
         
         // Find new model location.
