@@ -35,12 +35,17 @@ Settings.prototype.update = function(gamepads) {
         }
         cell.innerHTML = gamepads[i].id;
         var stick = new Joystick(gamepads[i]);
-       if(stick.buttonPressed()) {
+        if(i === settings.gamepad_index) { // If this is the gamepad currently being used.
+            cell.style.textDecoration = "underline";
+        } else {
+            cell.style.textDecoration = "none";
+        }
+        if(stick.buttonPressed()) {
            cell.style.background = "red";
            cell.style.color = "black";
-       } else {
+        } else {
            cell.style.background = "black";
            cell.style.color = "red";
-       }
+        }
     }
 };
