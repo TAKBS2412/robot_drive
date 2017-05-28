@@ -12,6 +12,15 @@ var settings;
 window.onload = function() {
     settings = new Settings(document.getElementById("settings"));
     
+    // Make sure that Settings.updateDrivingMode() is called when a radio button is clicked.
+    var buttons = document.getElementsByTagName("input");
+    for(var i = 0; i < buttons.length; i++) {
+    	var button = buttons[i];
+    	buttons[i].onclick = function() {
+    	    settings.updateDrivingMode(this);
+    	};
+    }
+
     /* A GameController implementation. */
     robotController = new GameController();
     

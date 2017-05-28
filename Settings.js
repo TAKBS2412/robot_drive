@@ -9,10 +9,19 @@ function Settings(_div) {
     
     // The index of the gamepad that the user is using.
     this.gamepad_index = -1;
+    
+    // The driving mode that the user is using.
+    this.driving_mode = "Joystick";
 }
 
-// Updates the settings div based on the gamepads from navigator.getGamepads().
+// Updates the settings div.
 Settings.prototype.update = function(gamepads) {
+    this.updateControllers(gamepads); // Update controller settings.
+    
+};
+
+// Updates the controller settings based on the gamepads from navigator.getGamepads().
+Settings.prototype.updateControllers = function(gamepads) {
     var controllers = document.getElementById("controllers");
     var numactivecontrollers = 0;
     for(var i = 0; i < gamepads.length; i++) {
@@ -50,4 +59,10 @@ Settings.prototype.update = function(gamepads) {
         }
         numactivecontrollers++;
     }
+};
+
+// Updates the drivingmode settings based on which radio button was clicked.
+// This function is called when one of the radio buttons has been clicked.
+Settings.prototype.updateDrivingMode = function(buttonPressed) {
+    this.driving_mode = buttonPressed.value;
 };
