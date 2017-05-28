@@ -14,6 +14,7 @@ function Settings(_div) {
 // Updates the settings div based on the gamepads from navigator.getGamepads().
 Settings.prototype.update = function(gamepads) {
     var controllers = document.getElementById("controllers");
+    var numactivecontrollers = 0;
     for(var i = 0; i < gamepads.length; i++) {
         var row = document.getElementById(i.toString(10));
         if(!gamepads[i]) { // This gamepad is null, delete its row.
@@ -24,7 +25,7 @@ Settings.prototype.update = function(gamepads) {
         }
         var cell;
         if(!row) { // Row not found, create a new one.
-            var row = controllers.insertRow(i);
+            var row = controllers.insertRow(numactivecontrollers);
             cell = row.insertCell(0);
             cell.id = i.toString(10);
             cell.addEventListener("click", function(e) {
@@ -47,5 +48,6 @@ Settings.prototype.update = function(gamepads) {
            cell.style.background = "black";
            cell.style.color = "red";
         }
+        numactivecontrollers++;
     }
 };
