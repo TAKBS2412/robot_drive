@@ -3,7 +3,7 @@
     src: url(BankGothicBold.ttf);
 }
 
-body {
+html, body {
     font-family: "BankGothic", "Lucida Console", sans-serif;
     background: black;
     color: red;
@@ -12,6 +12,12 @@ body {
 canvas {
     float: left;
     margin-right: 20px;
+    width: 49%;
+}
+
+#settings {
+    width: 49%;
+    float: right;
 }
 
 td {
@@ -22,3 +28,4 @@ td {
 h1 {
     text-align: center;
 }
+

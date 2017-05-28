@@ -15,9 +15,9 @@
 </head>
 
 <body>
+    <h1>Welcome to the Totally Accurate&trade; Robot Driving Simulator!</h1>
     <div>
-        <h1>Welcome to the Totally Accurate&trade; Robot Driving Simulator!</h1>
-        <canvas id="field" width="900" height="400" style="border:1px solid red">
+        <canvas id="field" style="border:1px solid red">
         Your browser doesn't support the HTML5 canvas tag.
         </canvas>
         <div id="settings">
@@ -27,6 +27,16 @@
             <h4 id="iesucks"></h4>
             <table id="controllers" border="1">
             </table>
+            <h2 style="vertical-align: top;">Choose a driving mode: </h2>
+            <form action="">
+                <input type="radio" name="drivingmode" value="Joystick">Joystick (Tested with Logitech Extreme 3D Pro)<br/>
+                <input type="radio" name="drivingmode" value="Gamepad">Gamepad (Tested with Xbox 360, Logitech F310)<br/>
+                <input type="radio" name="drivingmode" value="Airplane">Airplane (Tested with all of the above)<br/>
+            </form>
+            <h4>Joystick mode - Twist for turning, up and down for driving forwards and backwards.</h4>
+            <h4>Gamepad mode - Left stick (left and right) for turning, right stick (up and down*) for driving forwards and backwards.</h4>
+            
+            <h5>*Forwards and backwards</h5>
         </div>
     </div>
 </body>
