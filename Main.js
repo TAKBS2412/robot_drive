@@ -30,7 +30,6 @@ window.onload = function() {
         var angle = this.input.getX();
         if(Math.abs(angle) < 0.1) angle = 0;
         angle *= 0.07;
-        console.log(angle);
         return angle;
     };
     
