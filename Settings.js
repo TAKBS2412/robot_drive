@@ -65,4 +65,5 @@ Settings.prototype.updateControllers = function(gamepads) {
 // This function is called when one of the radio buttons has been clicked.
 Settings.prototype.updateDrivingMode = function(buttonPressed) {
     this.driving_mode = buttonPressed.value;
+    robotModel.resetPositionIfNeeded(defaultPosition[0], defaultPosition[1], -Math.PI/2, 0);
 };

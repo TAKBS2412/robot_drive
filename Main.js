@@ -7,6 +7,7 @@ var robotController;
 var robotModel;
 var robotView;
 var settings;
+var defaultPosition; // The [x, y] values that the robot starts at.
 
 // To be called when the page is loaded.
 window.onload = function() {
@@ -53,8 +54,16 @@ window.onload = function() {
     // Get half the width and half the height of the canvas.
     var widthhalf = canvas.width / 2;
     var heighthalf = canvas.height / 2;
-
+    defaultPosition = [widthhalf, heighthalf];
     robotModel = new GameModel(widthhalf, heighthalf); //Create new GameModel instance.
+    
+    // Resets x, y, angle, and speed to specified values if any of them are NaN.
+    robotModel.resetPositionIfNeeded = function(newx, newy, newangle, newspeed) {
+        this.x = (this.x || newx);
+        this.y = (this.y || newy);
+        this.angle = (this.angle || newangle);
+        this.speed = (this.speed || newspeed);
+    };
     
     // An implementation of GameModel's update() function.
     // Assumes that controller is a GameController object (see GameController.js) with the methods shown above implemented.
