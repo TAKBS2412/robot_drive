@@ -55,7 +55,7 @@ window.onload = function() {
     var heighthalf = canvas.height / 2;
     defaultPosition = [widthhalf, heighthalf];
     robotModel = new GameModel(widthhalf, heighthalf); // Create new GameModel instance.
-    robotModel.armlength = 10; //Length of robot's arms.
+    robotModel.armlength = 5; //Length of robot's arms.
     
     // Resets x, y, angle, and speed to specified values if any of them are NaN.
     robotModel.resetPositionIfNeeded = function(newx, newy, newangle, newspeed) {
