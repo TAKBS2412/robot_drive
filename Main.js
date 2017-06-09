@@ -83,6 +83,13 @@ window.onload = function() {
         } else if(controller.input.downButtonPressed()) {
             this.armlength = 20;
         }
+        
+        // Set armdistance based on if open or closed button is pressed.
+        if(controller.input.openButtonPressed()) {
+            this.armdistance = 30;
+        } else if(controller.input.closeButtonPressed()) {
+            this.armdistance = 20;
+        }
     };
     
     

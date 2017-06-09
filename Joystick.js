@@ -69,3 +69,25 @@ Joystick.prototype.downButtonPressed = function() {
         return this.getRawButton(6).pressed;
     }
 };
+
+// Returns whether the open button was pressed.
+Joystick.prototype.openButtonPressed = function() {
+    if(this.settings.driving_mode === "Joystick") {
+        return this.getRawButton(3).pressed;
+    } else if(this.settings.driving_mode === "Gamepad") {
+        return this.getRawButton(5).pressed;
+    } else if(this.settings.driving_mode === "Airplane") {
+        return this.getRawButton(5).pressed;
+    }
+};
+
+// Returns whether the close button was pressed.
+Joystick.prototype.closeButtonPressed = function() {
+    if(this.settings.driving_mode === "Joystick") {
+        return this.getRawButton(4).pressed;
+    } else if(this.settings.driving_mode === "Gamepad") {
+        return this.getRawButton(7).pressed;
+    } else if(this.settings.driving_mode === "Airplane") {
+        return this.getRawButton(7).pressed;
+    }
+};
