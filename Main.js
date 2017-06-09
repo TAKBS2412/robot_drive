@@ -75,6 +75,13 @@ window.onload = function() {
         // Recalculate x and y coordinates
         this.x += (controller.getDeltaX(this.angle, this.speed) | 0);
         this.y += (controller.getDeltaY(this.angle, this.speed) | 0);
+        
+        // Set armlength based on if up or down button is pressed.
+        if(controller.input.upButtonPressed()) {
+            this.armlength = 5;
+        } else if(controller.input.downButtonPressed()) {
+            this.armlength = 20;
+        }
     };
     
     

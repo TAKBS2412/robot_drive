@@ -47,3 +47,25 @@ Joystick.prototype.buttonPressed = function() {
     }
     return false;
 };
+
+// Returns whether the up button was pressed.
+Joystick.prototype.upButtonPressed = function() {
+    if(this.settings.driving_mode === "Joystick") {
+        return this.getRawButton(1).pressed;
+    } else if(this.settings.driving_mode === "Gamepad") {
+        return this.getRawButton(4).pressed;
+    } else if(this.settings.driving_mode === "Airplane") {
+        return this.getRawButton(4).pressed;
+    }
+};
+
+// Returns whether the down button was pressed.
+Joystick.prototype.downButtonPressed = function() {
+    if(this.settings.driving_mode === "Joystick") {
+        return this.getRawButton(2).pressed;
+    } else if(this.settings.driving_mode === "Gamepad") {
+        return this.getRawButton(6).pressed;
+    } else if(this.settings.driving_mode === "Airplane") {
+        return this.getRawButton(6).pressed;
+    }
+};
