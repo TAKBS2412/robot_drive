@@ -74,8 +74,19 @@ window.onload = function() {
         this.speed = -controller.getSpeed();
         
         // Recalculate x and y coordinates
-        this.x += (controller.getDeltaX(this.angle, this.speed) | 0);
-        this.y += (controller.getDeltaY(this.angle, this.speed) | 0);
+        this.deltax = controller.getDeltaX(this.angle, this.speed);
+        this.deltay = controller.getDeltaY(this.angle, this.speed);
+        
+        if(!this.deltax) {
+        	this.deltax = 0;
+        }
+        
+        if(!this.deltay) {
+        	this.deltay = 0;
+        }
+        
+        this.x += this.deltax;
+        this.y += this.deltay;
         
         // Set armlength based on if up or down button is pressed.
         if(controller.input.upButtonPressed()) {
